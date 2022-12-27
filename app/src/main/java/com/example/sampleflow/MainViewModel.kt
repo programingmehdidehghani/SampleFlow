@@ -22,6 +22,9 @@ class MainViewModel : ViewModel() {
     private val _stateFlow = MutableStateFlow(0)
     val stateFlow = _stateFlow.asStateFlow()
 
+    private val _shareFlow = MutableSharedFlow<Int>()
+    val shareFlow = _shareFlow.asSharedFlow()
+
     init {
         collectFlow()
     }
