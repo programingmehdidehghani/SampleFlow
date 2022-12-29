@@ -27,6 +27,25 @@ class MainViewModel : ViewModel() {
 
     init {
         collectFlow()
+        squareNumber(3)
+        viewModelScope.launch {
+            shareFlow.collect{
+                delay(2000L)
+                println("FLOW: The received number is $it")
+            }
+        }
+        viewModelScope.launch {
+            shareFlow.collect{
+                delay(3000L)
+                println("Second FLOW: The received number is $it")
+            }
+        }
+    }
+
+    fun squareNumber(number : Int){
+        viewModelScope.launch {
+            _shareFlow.emit(number * number)
+        }
     }
 
     fun incrementCounter(){
