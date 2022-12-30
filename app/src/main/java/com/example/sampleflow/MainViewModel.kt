@@ -21,15 +21,14 @@ class MainViewModel(
         }
     }.flowOn(dispatchers.main)
 
-    private val _stateFlow = MutableStateFlow(0)
-    val stateFlow = _stateFlow.asStateFlow()
+    /*private val _stateFlow = MutableStateFlow(0)
+    val stateFlow = _stateFlow.asStateFlow()*/
 
     private val _shareFlow = MutableSharedFlow<Int>()
     val shareFlow = _shareFlow.asSharedFlow()
 
     init {
         collectFlow()
-        squareNumber(3)
         viewModelScope.launch(dispatchers.main){
             shareFlow.collect{
                 delay(2000L)
@@ -42,6 +41,7 @@ class MainViewModel(
                 println("Second FLOW: The received number is $it")
             }
         }
+        squareNumber(3)
     }
 
     fun squareNumber(number : Int){
@@ -50,9 +50,9 @@ class MainViewModel(
         }
     }
 
-    fun incrementCounter(){
+  /*  fun incrementCounter(){
         _stateFlow.value += 1
-    }
+    }*/
 
     private fun collectFlow(){
         viewModelScope.launch {

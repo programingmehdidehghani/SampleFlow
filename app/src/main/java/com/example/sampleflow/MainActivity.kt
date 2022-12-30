@@ -31,15 +31,15 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        collectLatestLifecycleFlow(viewModel.stateFlow){
+       /* collectLatestLifecycleFlow(viewModel.stateFlow){
 
-        }
+        }*/
         setContent {
             SampleFlowTheme {
                 val viewModel = viewModel<MainViewModel>()
                 val count = viewModel.countDownFlow.collectAsState(initial = 0)
                Box(modifier = Modifier.fillMaxSize()){
-                   Button(onClick = { viewModel.incrementCounter() }) {
+                   Button(onClick = {  }) {
                        Text(text = "count: ${count.value}")
                    }
                }
@@ -48,11 +48,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-fun ComponentActivity.collectLatestLifecycleFlow(flow: Flow<T>,collect: suspend (T) -> Unit) {
+/*fun ComponentActivity.collectLatestLifecycleFlow(flow: Flow<T>,collect: suspend (T) -> Unit) {
      lifecycleScope.launch {
          repeatOnLifecycle(Lifecycle.State.STARTED){
                flow.collectLatest(collect)
          }
      }
-}
+}*/
 
