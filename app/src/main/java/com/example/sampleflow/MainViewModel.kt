@@ -28,7 +28,7 @@ class MainViewModel(
     val shareFlow = _shareFlow.asSharedFlow()
 
     init {
-        collectFlow()
+       // collectFlow()
         viewModelScope.launch(dispatchers.main){
             shareFlow.collect{
                 delay(2000L)
@@ -54,7 +54,7 @@ class MainViewModel(
         _stateFlow.value += 1
     }*/
 
-    private fun collectFlow(){
+   /* private fun collectFlow(){
         viewModelScope.launch {
             countDownFlow
                 .filter { time ->
@@ -70,5 +70,5 @@ class MainViewModel(
                 println("the current time is $time")
             }
         }
-    }
+    }*/
 }
