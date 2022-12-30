@@ -1,6 +1,7 @@
 package com.example.sampleflow
 
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 
 interface DispatcherProvider {
     val main: CoroutineDispatcher
@@ -10,12 +11,12 @@ interface DispatcherProvider {
 }
 
 class DefaultDispatchers : DispatcherProvider {
-    
+
     override val main: CoroutineDispatcher
-        get() = TODO("Not yet implemented")
+        get() = Dispatchers.Main
     override val io: CoroutineDispatcher
-        get() = TODO("Not yet implemented")
+        get() = Dispatchers.IO
     override val default: CoroutineDispatcher
-        get() = TODO("Not yet implemented")
+        get() = Dispatchers.Default
 
 }
