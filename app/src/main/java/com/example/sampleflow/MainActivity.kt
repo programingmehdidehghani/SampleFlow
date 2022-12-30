@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        collectLatestLifecycleFlow(viewModel.stateFlow){ number ->
+        collectLatestLifecycleFlow(viewModel.stateFlow){
 
         }
         setContent {
